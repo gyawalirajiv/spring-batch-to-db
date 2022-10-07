@@ -20,7 +20,7 @@ public class Student {
 
     private String firstName;
     private String lastName;
-    private String gpa;
+    private double gpa;
     @Transient
     private int age;
     private LocalDate dob;
