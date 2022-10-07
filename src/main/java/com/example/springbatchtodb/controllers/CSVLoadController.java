@@ -1,5 +1,6 @@
 package com.example.springbatchtodb.controllers;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.batch.core.*;
 import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.batch.core.repository.JobExecutionAlreadyRunningException;
@@ -15,11 +16,11 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("csv_load")
+@RequiredArgsConstructor
 public class CSVLoadController {
-    @Autowired
-    JobLauncher jobLauncher;
-    @Autowired
-    Job job;
+
+    private final JobLauncher jobLauncher;
+    private final Job job;
 
     @GetMapping
     public BatchStatus load() throws JobParametersInvalidException, JobExecutionAlreadyRunningException, JobRestartException, JobInstanceAlreadyCompleteException {
