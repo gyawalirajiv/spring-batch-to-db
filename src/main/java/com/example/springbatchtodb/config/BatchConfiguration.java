@@ -37,7 +37,7 @@ public class BatchConfiguration {
                    ItemWriter<Student> itemWriter
     ) {
         Step step = stepBuilderFactory.get("ETL-file-load")
-                .<Student, Student>chunk(4)
+                .<Student, Student>chunk(1000)
                 .reader(itemReader)
                 .processor(itemProcessor)
                 .writer(itemWriter)
