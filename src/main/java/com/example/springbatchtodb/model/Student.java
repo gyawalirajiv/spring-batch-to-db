@@ -1,24 +1,27 @@
 package com.example.springbatchtodb.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.time.LocalDate;
 
 @Getter
 @Setter
 @Entity
+@AllArgsConstructor
 @NoArgsConstructor
 public class Student {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String firstName;
     private String lastName;
     private String gpa;
+    @Transient
     private int age;
+    private LocalDate dob;
 }
