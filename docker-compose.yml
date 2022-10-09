@@ -24,7 +24,7 @@ services:
     ports:
       - 3307:3306
     environment:
-      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: swa
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
