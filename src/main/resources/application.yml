@@ -2,7 +2,7 @@ spring:
   application:
     name: swa
   datasource:
-    password: password
+    password: pass
     url: jdbc:mysql://${MYSQL_URL:localhost}:3306/swa?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
     username: root
   jpa:

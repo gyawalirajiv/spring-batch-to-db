@@ -1,6 +1,7 @@
 package com.example.springbatchtodb.config;
 
 import com.example.springbatchtodb.model.Student;
+import io.micrometer.core.instrument.util.IOUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.batch.core.*;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
@@ -21,8 +22,10 @@ import org.springframework.batch.item.file.mapping.DefaultLineMapper;
 import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.FileSystemResource;
 
+import java.io.IOException;
 import java.util.Collection;
 
 
@@ -52,7 +55,7 @@ public class BatchConfiguration {
     @Bean
     public FlatFileItemReader<Student> itemReader() {
         FlatFileItemReader<Student> flatFileItemReader = new FlatFileItemReader<>();
-        flatFileItemReader.setResource(new FileSystemResource("src/main/resources/student.csv"));
+        flatFileItemReader.setResource(new ClassPathResource("student.csv"));
         flatFileItemReader.setName("CSV-Reader");
         flatFileItemReader.setLinesToSkip(1);
         flatFileItemReader.setLineMapper(lineMapper());

@@ -12,7 +12,8 @@ services:
     environment:
       MYSQL_URL: batch-mysql
       MYSQL_USER: root
-      MYSQL_PASSWORD: password
+      MYSQL_PASSWORD: pass
+      MYSQL_PORT: 3307
     networks:
       - batch-net
     depends_on:
@@ -22,9 +23,9 @@ services:
   batch-mysql:
     image: mysql:latest
     ports:
-      - 3307:3306
+      - 3306:3306
     environment:
-      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: pass
       MYSQL_DATABASE: swa
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]

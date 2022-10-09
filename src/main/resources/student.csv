@@ -1,4 +1,4 @@
-name/first,name/last,natural(4),age
+firstName,lastName,gpa,age
 Cody,Malone,3,63
 Rodney,Henry,0,32
 Leila,Sanchez,4,36
